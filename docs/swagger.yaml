@@ -9,6 +9,11 @@ definitions:
       name:
         type: string
     type: object
+  handlers.errorResponse:
+    properties:
+      error:
+        type: string
+    type: object
   handlers.userResponse:
     properties:
       data:
@@ -52,4 +57,36 @@ paths:
       summary: Get all users
       tags:
       - Users
+    post:
+      consumes:
+      - application/json
+      description: Create a new user
+      parameters:
+      - description: User
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/entities.User'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/entities.User'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handlers.errorResponse'
+      security:
+      - apiKeyAuth: []
+      summary: Create a new user
+      tags:
+      - Users
+securityDefinitions:
+  apiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
 swagger: "2.0"

@@ -15,6 +15,10 @@ import (
 // @version 1.0
 // @description This is a rest api for goal plannig
 // @BasePath /api/v1
+
+// @securityDefinitions.apikey apiKeyAuth
+// @in header
+// @name Authorization
 func main() {
 	r := gin.Default()
 	docs.SwaggerInfo.BasePath = "/api/v1"
@@ -27,6 +31,7 @@ func main() {
 		users := v1.Group("/users")
 		{
 			users.GET("", handlers.GetUsers)
+			users.POST("", handlers.CreateUser)
 		}
 	}
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
