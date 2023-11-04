@@ -11,5 +11,5 @@ make
 ```
 
 ```
-./bin/goalplaner
+./bin/goal-planer
 ```

@@ -1,6 +1,26 @@
 basePath: /api/v1
+definitions:
+  entities.User:
+    properties:
+      email:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  handlers.userResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/entities.User'
+        type: array
+    type: object
 info:
   contact: {}
+  description: This is a rest api for goal plannig
+  title: Goal planer api
+  version: "1.0"
 paths:
   /example/helloworld:
     get:
@@ -17,4 +37,19 @@ paths:
       summary: ping example
       tags:
       - example
+  /users:
+    get:
+      consumes:
+      - application/json
+      description: Get all users from the database
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.userResponse'
+      summary: Get all users
+      tags:
+      - Users
 swagger: "2.0"
