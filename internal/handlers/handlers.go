@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/cdlavacudeg/go-goal-planer/internal/entities"
+	"github.com/cdlavacudeg/go-goal-planner/internal/entities"
 )
 
 type userResponse struct {

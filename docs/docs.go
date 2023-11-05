@@ -155,7 +155,7 @@ var SwaggerInfo = &swag.Spec{
 	Host:             "",
 	BasePath:         "/api/v1",
 	Schemes:          []string{},
-	Title:            "Goal planer api",
+	Title:            "Goal planner api",
 	Description:      "This is a rest api for goal plannig",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,

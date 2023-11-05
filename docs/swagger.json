@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "description": "This is a rest api for goal plannig",
-        "title": "Goal planer api",
+        "title": "Goal planner api",
         "contact": {},
         "version": "1.0"
     },

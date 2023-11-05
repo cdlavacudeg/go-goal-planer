@@ -1,9 +1,9 @@
-# Goal planer REST API
+# Goal planner REST API
 
 ## How to use
 
 ```
-git clone https://github.com/goalplaner/goalplaner
+git clone https://github.com/cdlavacudeg/go-goal-planner.git
 ```
 
 ```
@@ -11,7 +11,7 @@ make
 ```
 
 ```
-./bin/goal-planer
+./bin/goal-planner
 ```
 
 ## Dynamodb Local

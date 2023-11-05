@@ -1,4 +1,4 @@
-BYNARY_NAME= goal-planer
+BYNARY_NAME= goal-planner
 
 generate_docs:
 	swag init -g cmd/app/main.go

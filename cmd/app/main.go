@@ -7,11 +7,11 @@ import (
 	"github.com/swaggo/files"
 	"github.com/swaggo/gin-swagger"
 
-	docs "github.com/cdlavacudeg/go-goal-planer/docs"
-	"github.com/cdlavacudeg/go-goal-planer/internal/handlers"
+	docs "github.com/cdlavacudeg/go-goal-planner/docs"
+	"github.com/cdlavacudeg/go-goal-planner/internal/handlers"
 )
 
-// @title Goal planer api
+// @title Goal planner api
 // @version 1.0
 // @description This is a rest api for goal plannig
 // @BasePath /api/v1

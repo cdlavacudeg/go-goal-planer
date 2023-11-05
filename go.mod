@@ -1,4 +1,4 @@
-module github.com/cdlavacudeg/go-goal-planer
+module github.com/cdlavacudeg/go-goal-planner
 
 go 1.21.3
 
