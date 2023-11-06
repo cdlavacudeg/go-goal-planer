@@ -28,4 +28,5 @@ make
 ```
 docker compose up
 aws dynamodb list-tables --endpoint-url http://localhost:8000
+aws dynamodb delete-table --table-name Users --endpoint-url http://localhost:8000
 ```
