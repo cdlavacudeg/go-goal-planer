@@ -27,21 +27,6 @@ info:
   title: Goal planner api
   version: "1.0"
 paths:
-  /example/helloworld:
-    get:
-      consumes:
-      - application/json
-      description: do ping
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            type: string
-      summary: ping example
-      tags:
-      - example
   /users:
     get:
       consumes:
