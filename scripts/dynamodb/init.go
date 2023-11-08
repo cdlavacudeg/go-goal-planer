@@ -18,34 +18,31 @@ func main() {
 
 	svc := dynamodb.New(awsSession)
 	// Create table Movies
-	tableName := "Users"
+	tableName := "GoalPlanner"
 
 	input := &dynamodb.CreateTableInput{
 		AttributeDefinitions: []*dynamodb.AttributeDefinition{
 			{
-				AttributeName: aws.String("Name"),
+				AttributeName: aws.String("PK"),
 				AttributeType: aws.String("S"),
 			},
 			{
-				AttributeName: aws.String("Email"),
+				AttributeName: aws.String("SK"),
 				AttributeType: aws.String("S"),
 			},
 		},
 		KeySchema: []*dynamodb.KeySchemaElement{
 			{
-				AttributeName: aws.String("Name"),
+				AttributeName: aws.String("PK"),
 				KeyType:       aws.String("HASH"),
 			},
 			{
-				AttributeName: aws.String("Email"),
+				AttributeName: aws.String("SK"),
 				KeyType:       aws.String("RANGE"),
 			},
 		},
-		ProvisionedThroughput: &dynamodb.ProvisionedThroughput{
-			ReadCapacityUnits:  aws.Int64(10),
-			WriteCapacityUnits: aws.Int64(10),
-		},
-		TableName: aws.String(tableName),
+		TableName:   aws.String(tableName),
+		BillingMode: aws.String("PAY_PER_REQUEST"),
 	}
 
 	_, err = svc.CreateTable(input)
