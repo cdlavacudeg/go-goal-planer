@@ -1,12 +1,8 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "This is a rest api for goal plannig",
-        "title": "Goal planner api",
-        "contact": {},
-        "version": "1.0"
+        "contact": {}
     },
-    "basePath": "/api/v1",
     "paths": {
         "/users": {
             "get": {
@@ -79,6 +75,12 @@
         "entities.User": {
             "type": "object",
             "properties": {
+                "PK": {
+                    "type": "string"
+                },
+                "SK": {
+                    "type": "string"
+                },
                 "email": {
                     "type": "string"
                 },
@@ -108,13 +110,6 @@
                     }
                 }
             }
-        }
-    },
-    "securityDefinitions": {
-        "apiKeyAuth": {
-            "type": "apiKey",
-            "name": "Authorization",
-            "in": "header"
         }
     }
 }

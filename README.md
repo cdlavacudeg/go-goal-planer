@@ -30,6 +30,11 @@ docker compose up
 aws dynamodb list-tables --endpoint-url http://localhost:8000
 aws dynamodb delete-table --table-name GoalPlanner --endpoint-url http://localhost:8000
 aws dynamodb describe-table --table-name GoalPlanner --endpoint-url http://localhost:8000
+aws dynamodb get-item \
+  --table-name GoalPlanner \
+  --key '{"PK": {"S": "User#100"}, "SK": {"S": "User#100-t100"}}' \
+  --endpoint-url http://localhost:8000
+
 ```
 
 ## DynamoDB one table design

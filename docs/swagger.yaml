@@ -1,7 +1,10 @@
-basePath: /api/v1
 definitions:
   entities.User:
     properties:
+      PK:
+        type: string
+      SK:
+        type: string
       email:
         type: string
       id:
@@ -23,9 +26,6 @@ definitions:
     type: object
 info:
   contact: {}
-  description: This is a rest api for goal plannig
-  title: Goal planner api
-  version: "1.0"
 paths:
   /users:
     get:
@@ -69,9 +69,4 @@ paths:
       summary: Create a new user
       tags:
       - Users
-securityDefinitions:
-  apiKeyAuth:
-    in: header
-    name: Authorization
-    type: apiKey
 swagger: "2.0"

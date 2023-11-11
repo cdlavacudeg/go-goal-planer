@@ -2,9 +2,15 @@ package entities
 
 import (
 	"errors"
+	"fmt"
+
+	"github.com/aws/aws-sdk-go/service/dynamodb"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
 )
 
 type User struct {
+	PK    string `json:"PK"`
+	SK    string `json:"SK"`
 	Id    int    `json:"id"`
 	Name  string `json:"name"`
 	Email string `json:"email"`
@@ -12,11 +18,15 @@ type User struct {
 
 var users = []User{
 	{
-		Id:    1,
+		PK:    "USER",
+		SK:    "USER",
+		Id:    2,
 		Name:  "John",
 		Email: "j@j.com",
 	},
 	{
+		PK:    "USER",
+		SK:    "USER",
 		Id:    2,
 		Name:  "Jane",
 		Email: "jane@j.com",
@@ -36,8 +46,22 @@ func GetUser(id int) (*User, error) {
 	return nil, errors.New("User not found")
 }
 
-func CreateUser(user User) error {
-	user.Id = len(users) + 1
-	users = append(users, user)
+func CreateUser(service dynamodb.DynamoDB, user User, tableName string) error {
+	av, err := dynamodbattribute.MarshalMap(user)
+
+	fmt.Print(av)
+	if err != nil {
+		return err
+	}
+
+	_, err = service.PutItem(&dynamodb.PutItemInput{
+		TableName: &tableName,
+		Item:      av,
+	})
+
+	if err != nil {
+		return err
+	}
+
 	return nil
 }

@@ -86,6 +86,12 @@ const docTemplate = `{
         "entities.User": {
             "type": "object",
             "properties": {
+                "PK": {
+                    "type": "string"
+                },
+                "SK": {
+                    "type": "string"
+                },
                 "email": {
                     "type": "string"
                 },
@@ -116,24 +122,17 @@ const docTemplate = `{
                 }
             }
         }
-    },
-    "securityDefinitions": {
-        "apiKeyAuth": {
-            "type": "apiKey",
-            "name": "Authorization",
-            "in": "header"
-        }
     }
 }`
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
-	Version:          "1.0",
+	Version:          "",
 	Host:             "",
-	BasePath:         "/api/v1",
+	BasePath:         "",
 	Schemes:          []string{},
-	Title:            "Goal planner api",
-	Description:      "This is a rest api for goal plannig",
+	Title:            "",
+	Description:      "",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

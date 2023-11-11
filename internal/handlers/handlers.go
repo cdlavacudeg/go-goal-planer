@@ -48,7 +48,8 @@ func CreateUser(context *gin.Context) {
 		return
 	}
 
-	err := entities.CreateUser(req)
+	service := GetService()
+	err := entities.CreateUser(*service, req, "GoalPlanner")
 	if err != nil {
 		context.JSON(http.StatusBadRequest, errorResponse{Error: err.Error()})
 		return
