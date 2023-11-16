@@ -24,10 +24,10 @@ type errorResponse struct {
 // @Produce json
 // @Success 200 {object} userResponse
 // @Router /users [get]
-func GetUsers(context *gin.Context) {
-	users := entities.GetUsers()
-	context.JSON(http.StatusOK, userResponse{Data: users})
-}
+// func GetUsers(context *gin.Context) {
+// 	users := entities.GetUsers()
+// 	context.JSON(http.StatusOK, userResponse{Data: users})
+// }
 
 // CreateUser godoc
 // @Summary Create a new user
@@ -49,7 +49,7 @@ func CreateUser(context *gin.Context) {
 	}
 
 	service := GetService()
-	err := entities.CreateUser(*service, req, "GoalPlanner")
+	err := entities.CreateItem(*service, req, "GoalPlanner")
 	if err != nil {
 		context.JSON(http.StatusBadRequest, errorResponse{Error: err.Error()})
 		return
