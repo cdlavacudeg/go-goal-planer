@@ -1,14 +1,8 @@
 definitions:
   entities.User:
     properties:
-      PK:
-        type: string
-      SK:
-        type: string
       email:
         type: string
-      id:
-        type: integer
       name:
         type: string
     type: object
@@ -17,31 +11,10 @@ definitions:
       error:
         type: string
     type: object
-  handlers.userResponse:
-    properties:
-      data:
-        items:
-          $ref: '#/definitions/entities.User'
-        type: array
-    type: object
 info:
   contact: {}
 paths:
   /users:
-    get:
-      consumes:
-      - application/json
-      description: Get all users from the database
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/handlers.userResponse'
-      summary: Get all users
-      tags:
-      - Users
     post:
       consumes:
       - application/json

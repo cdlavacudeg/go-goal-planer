@@ -16,27 +16,6 @@ const docTemplate = `{
     "basePath": "{{.BasePath}}",
     "paths": {
         "/users": {
-            "get": {
-                "description": "Get all users from the database",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Users"
-                ],
-                "summary": "Get all users",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/handlers.userResponse"
-                        }
-                    }
-                }
-            },
             "post": {
                 "security": [
                     {
@@ -86,17 +65,8 @@ const docTemplate = `{
         "entities.User": {
             "type": "object",
             "properties": {
-                "PK": {
-                    "type": "string"
-                },
-                "SK": {
-                    "type": "string"
-                },
                 "email": {
                     "type": "string"
-                },
-                "id": {
-                    "type": "integer"
                 },
                 "name": {
                     "type": "string"
@@ -108,17 +78,6 @@ const docTemplate = `{
             "properties": {
                 "error": {
                     "type": "string"
-                }
-            }
-        },
-        "handlers.userResponse": {
-            "type": "object",
-            "properties": {
-                "data": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/entities.User"
-                    }
                 }
             }
         }
